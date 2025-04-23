@@ -1,8 +1,11 @@
 import React from 'react'
+import MovieSection from '../components/movies/MovieSection'
 
 function Home() {
   return (
-    <div>Home</div>
+    <div className=''>
+      <MovieSection/>
+    </div>
   )
 }
 
