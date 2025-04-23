@@ -1,7 +1,6 @@
 import { ShoppingCart } from "lucide-react";
 import React, { useState } from "react";
 import { movieStore } from "../../store/movie-store";
-import Quantity from "../cart/Quantity";
 
 function MovieList({ language, id, title, vote, poster }) {
   const [ProDuctQuantity, setProDuctQuantity] = useState(0);
@@ -11,12 +10,16 @@ function MovieList({ language, id, title, vote, poster }) {
     setProDuctQuantity(ProDuctQuantity + 1);
   };
   const HdlDeCrease = () => {
-    if (quantity <= 0) return;
+    if (ProDuctQuantity <= 0) return;
+    setProDuctQuantity(ProDuctQuantity - 1);
+}
 
-    const HdlAddToCart = (value) => {
-      console.log(value);
-      addToCart(ProDuctQuantity);
+    const HdlAddToCart = (id) => {
+      console.log(id);
+      addToCart(...cart, {id: id, quantity: ProDuctQuantity});
+      console.log(cart);
     };
+
 
   return (
     <div className="movie-card w-full h-full">
@@ -40,12 +43,29 @@ function MovieList({ language, id, title, vote, poster }) {
         </div>
       </div>
       <div className="flex-1" />
+      
       <div className="flex flex-col items-center  gap-5 p-2">
-        <Quantity HdlInCrease={HdlInCrease} HdlDeCrease={HdlDeCrease} HdlAddToCart={HdlAddToCart} />
+      <div className="flex gap-10 border-1 border-gray-300 rounded-md p-2">
+          <div onClick={HdlDeCrease} className="cursor-pointer">
+            -
+          </div>
+          <div>{ProDuctQuantity}</div>
+          <div onClick={HdlInCrease} className="cursor-pointer">
+            +
+          </div>
+        </div>
+        <div
+          className="button flex justify-center items-center"
+          value={id}
+          onClick={() => HdlAddToCart(id)}
+        >
+          <ShoppingCart />
+        </div>
       </div>
     </div>
   );
 }
-}
+
+
 
 export default MovieList;

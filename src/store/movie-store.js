@@ -12,13 +12,11 @@ export const movieStore = create(
       console.log(res);
       set({ movieList: res.data.results });
     },
-    fetchSearchMovie: async (data) => {
-      const res = await axiosInstance.get(`search/movie?&query=${data}`);
-      console.log(res);
-      set({ movieList: res.data.results });
-    },
-    cart: [],
-    quantity: 0,
+  
+    cart: [{
+        id: '',
+        quantity: '',
+    }],
     addToCart: (movie) => {
         const cart = get().cart;
       const existingMovie = cart.find((item) => item.id === movie.id);

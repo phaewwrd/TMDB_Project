@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import MovieList from './MovieList'
-import { fetchGetMovies } from '../../api/movie';
 import { movieStore } from '../../store/movie-store';
 
 function MovieSection() {
