@@ -30,7 +30,7 @@ export default function SearchInPut() {
         className="input-search"
         onChange={HanDleSearch}
       />
-      <Search onClick={SearchBtn} className="cursor-pointer" />
+      <Search onClick={SearchBtn} className="cursor-pointer text-red-700" />
       {
         search.length > 0 &&  <X onClick={CanCelBtn} className="cursor-pointer absolute right-30 top-3" />
       }

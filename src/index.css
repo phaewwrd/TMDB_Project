@@ -1,11 +1,19 @@
 @import "tailwindcss";
 
+.movie-section{
+  justify-content: center;
+  align-items: center;
+  margin: 0px 30px ;
+  padding: 30px 0px;
+  gap: 20px;
+}
+
 .movie-card{
   width: 200px;
     margin: 10px;
     display: flex;
     flex-direction: column;
-    background-color: #282c34;
+    background-color: #23252a;
     border-radius: 10px;
     padding: 10px;
     color: white;
@@ -15,10 +23,11 @@
   height: 30px;
   width: 300px;
   border-radius: 10px;
-  border: 1px solid rgb(46, 46, 46);
+  border: 1px solid rgb(255, 255, 255);
   padding: 10px;
   font-size: 16px;
   margin-bottom: 10px;
+  color: rgb(202, 0, 0);
 }
 
 .label-search{
@@ -37,4 +46,16 @@
   cursor: pointer;
   color: white;
   background-color: #d91d00;
+}
+
+.cart-drawer{
+ display: flex;
+  justify-items: center;
+  gap: 20px;
+  margin: 10px;
+}
+
+.sm-text{
+  font-size: 14px;
+  color: #868686;
 }
