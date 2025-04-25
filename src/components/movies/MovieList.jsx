@@ -3,22 +3,22 @@ import React, { useState } from "react";
 import { movieStore } from "../../store/movie-store";
 
 function MovieList({ language, id, title, vote, poster }) {
-  const [ProDuctQuantity, setProDuctQuantity] = useState(0);
+  const [proDuctQuantity, setProDuctQuantity] = useState(0);
   const { cart, quantity, addToCart } = movieStore();
+  const price = 279
 
   const HdlInCrease = () => {
-    setProDuctQuantity(ProDuctQuantity + 1);
+    setProDuctQuantity(proDuctQuantity + 1);
   };
   const HdlDeCrease = () => {
-    if (ProDuctQuantity <= 0) return;
-    setProDuctQuantity(ProDuctQuantity - 1);
-}
+    if (proDuctQuantity <= 0) return;
+    setProDuctQuantity(proDuctQuantity - 1);
+  };
 
-    const HdlAddToCart = (id) => {
-      console.log(id);
-      addToCart(...cart, {id: id, quantity: ProDuctQuantity});
-      console.log(cart);
-    };
+  const HdlAddToCart = (id) => {
+    addToCart({ id,title, proDuctQuantity, price });
+    setProDuctQuantity(0)
+  };
 
 
   return (
@@ -43,13 +43,18 @@ function MovieList({ language, id, title, vote, poster }) {
         </div>
       </div>
       <div className="flex-1" />
-      
+      <div className="flex justify-between items-center p-2">
+        <div>Prices</div>
+        <div>{price}</div>
+
+      </div>
+
       <div className="flex flex-col items-center  gap-5 p-2">
-      <div className="flex gap-10 border-1 border-gray-300 rounded-md p-2">
+        <div className="flex gap-10 border-1 border-gray-300 rounded-md p-2">
           <div onClick={HdlDeCrease} className="cursor-pointer">
             -
           </div>
-          <div>{ProDuctQuantity}</div>
+          <div>{proDuctQuantity}</div>
           <div onClick={HdlInCrease} className="cursor-pointer">
             +
           </div>
@@ -65,7 +70,5 @@ function MovieList({ language, id, title, vote, poster }) {
     </div>
   );
 }
-
-
 
 export default MovieList;

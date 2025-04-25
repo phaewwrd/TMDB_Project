@@ -3,7 +3,7 @@ import MovieSection from '../components/movies/MovieSection'
 
 function Home() {
   return (
-    <div className=''>
+    <div className='bg-gray-950'>
       <MovieSection/>
     </div>
   )

@@ -13,24 +13,66 @@ export const movieStore = create(
       set({ movieList: res.data.results });
     },
   
-    cart: [{
-        id: '',
-        quantity: '',
-    }],
+    cart: [],
     addToCart: (movie) => {
         const cart = get().cart;
       const existingMovie = cart.find((item) => item.id === movie.id);
+      if (!movie.proDuctQuantity) {
+        return;
+      }
       if (existingMovie) {
         set({
           cart: cart.map((item) =>
             item.id === movie.id
-              ? { ...item, quantity: item.quantity + 1 }
+              ? { ...item, quantity: item.proDuctQuantity + movie.proDuctQuantity }
               : item
           ),
         });
       } else {
-        set({ cart: [...cart, { ...movie, quantity: 1 }] });
+        set({ cart: [...cart, { ...movie, quantity: movie.proDuctQuantity}] });
       }
+      console.log("cart", cart);
+    },
+    removeFromCart: (movie) => {
+      const cart = get().cart;
+      const existingMovie = cart.find((item) => item.id === movie.id);
+      if (existingMovie) {
+        if (existingMovie.quantity > 1) {
+          set({
+            cart: cart.map((item) =>
+              item.id === movie.id
+                ? { ...item, quantity: item.quantity - 1 }
+                : item
+            ),
+          });
+        } else {
+          set({
+            cart: cart.filter((item) => item.id !== movie.id),
+          });
+        }
+      }
+    },
+    addFromCart: (movie) => {
+      const cart = get().cart;
+      const existingMovie = cart.find((item) => item.id === movie.id);
+      if (existingMovie) {
+        if (existingMovie.quantity >= 0) {
+          set({
+            cart: cart.map((item) =>
+              item.id === movie.id
+                ? { ...item, quantity: item.quantity + 1 }
+                : item
+            ),
+          });
+        } else {
+          set({
+            cart: cart.filter((item) => item.id !== movie.id),
+          });
+        }
+      }
+    },
+    clearCart: () => {
+      set({ cart: [] });
     },
 
   }))
