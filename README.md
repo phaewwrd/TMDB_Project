@@ -1,8 +1,23 @@
-# React + Vite
+# Step to run TMDB Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+```bash
+git clone https://github.com/phaewwrd/TMDB_Project.git
+```
 
-Currently, two official plugins are available:
+```bash
+cd TMDB_Project
+npm install
+```
+# Create .env file get your API Key from  https://www.themoviedb.org/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```jsx
+VITE_TMDB_API_TOKEN=your_api_token
+VITE_TMDB_API_KEY=your_api_key
+```
+
+# Start Project
+
+```bash
+npm run dev
+o
+```
