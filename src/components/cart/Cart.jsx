@@ -44,12 +44,22 @@ function Cart() {
   };
 
   const handleCheckout = () => {
+
+   
+
     if(total === 0) {
       alert("Your cart is empty.");
       return;
     }
+
+    // handleStartTimer();
     setShowPopup(!showPopup);
+ if (localStorage.getItem("startTime")) {
+      return;
+    }
   };
+
+   
 
   return (
     <div>
@@ -121,7 +131,7 @@ function Cart() {
         </div>
           {
             showPopup && (
-                <CheckOut setShowPopup={setShowPopup} showPopup={showPopup} />
+                <CheckOut setShowPopup={setShowPopup}  />
             )
           }
       </div>

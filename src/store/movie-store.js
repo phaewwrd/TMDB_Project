@@ -73,7 +73,7 @@ export const movieStore = create(
     },
     clearCart: () => {
       set({ cart: [] });
-    }
+    },
 
   }))
 );
