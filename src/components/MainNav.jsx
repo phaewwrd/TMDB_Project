@@ -13,7 +13,7 @@ function MainNav() {
   };
 
   return (
-    <nav className="w-full h-[700px] bg-transparent flex">
+    <nav className="w-full h-[600px] bg-transparent flex">
       <div className="flex justify-between items-start w-full backdrop-blur bg-gray/10 h-[70px]">
         <div className="text-red-700 text-2xl p-5 pl-15 ">MOVIESHOP</div>
         <div>
@@ -27,7 +27,7 @@ function MainNav() {
           </div>
         </div>
       </div>
-      <div className="bg-gray-900 absolute right-70 top-40 w-100 h-100 p-10 rounded-3xl -z-5">
+      <div className=" absolute right-70 top-40 w-100 h-100 p-10 rounded-3xl -z-5">
         <img
           src="/public/the-last-of-us-2560-x-1600-background-c7bndvp8by3xom3b.jpg"
           className="w-100 "

@@ -3,7 +3,7 @@ import { Facebook, Twitter, Instagram, Mail, FacebookIcon } from "lucide-react";
 
 function Footer() {
   return (
-    <footer className="bg-gray-900 text-white py-8 mt-10">
+    <footer className="bg-gray-900 text-white py-8 pt-10">
       <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
         
         {/* About */}
